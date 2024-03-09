@@ -656,6 +656,10 @@ progress {
   color: #4d5469;
 }
 
+.main-container {
+  margin-top: 70px;
+}
+
 .container,
 .container-fluid,
 .container-sm,
@@ -1155,7 +1159,7 @@ progress {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    width: 50%;
+
   }
 
   .col-sm-7 {
@@ -5228,7 +5232,10 @@ fieldset:disabled .btn {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+
 }
+
+
 
 .nav-link {
   display: block;
@@ -5236,6 +5243,10 @@ fieldset:disabled .btn {
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  font-family: "Rubik", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 500;
+  line-height: 1.2;
+  color: #0B132A;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6271,6 +6282,10 @@ fieldset:disabled .btn {
   color: #070e17;
   background-color: #ced1d4;
   border-color: #b6b9be;
+}
+
+#provides {
+  height: 81vh;
 }
 
 .alert-dark .alert-link {
@@ -21031,14 +21046,60 @@ label {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: 70px;
+  align-items: center;
 }
 
+@media (max-width: 1117px) {
+  #contact-form {
+    flex-direction: column;
+  }
+
+  .contact-img {
+    display: none;
+  }
+
+}
+
+@media (max-width: 526px) {
+  .form {
+    --width-of-input: 90% !important;
+  }
+
+  #provides {
+    height: 81vh;
+    margin-top: 150px;
+  }
+
+  .main-container {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 1470px) {
+  .contact-img {
+    height: 400px !important;
+    width: auto;
+    margin-right: 50px
+  }
+}
+
+#sendMessageButton {
+  background-color: #2F2E41;
+  border: #2F2E41;
+}
+
+@media (max-width: 1344px) {
+  .contact-img {
+    height: 350px !important;
+    width: auto;
+    margin-right: 50px
+  }
+}
 
 .contact-img {
-  height: 400px;
+  height: 500px;
   width: auto;
-  margin-left: 50px;
+  margin-right: 50px
 }
 
 .contact-title {
@@ -21086,7 +21147,6 @@ label {
 }
 
 .form-message {
-
   --timing: 0.3s;
   --width-of-input: 500px;
   --height-of-input: 130px;
@@ -21168,11 +21228,54 @@ input:not(:placeholder-shown)~.reset {
 }
 
 #homepage {
-  height: 100vh;
+  height: 87vh;
+}
+
+
+
+.scroll-icon {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 30px;
+  height: auto;
+  display: block;
+  transition: 0.5s;
+}
+
+/* animate the cursor-svg to fade out after the path element has been animated enough times to be annoying */
+.scroll-icon {
+  animation: fadeOut 0.5s 10s forwards;
+
+  #offset {
+    animation: removeOffset 2s 5 ease-in-out;
+    transition: 0.5s;
+  }
+
+
+}
+
+@keyframes removeOffset {
+  37.5% {
+    stroke-dashoffset: 0;
+    transition: 0.5s;
+  }
+
+  75% {
+    stroke-dashoffset: var(--offset);
+    transition: 0.5s;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+
 }
 
 /*-----------------------------------------------
 |   User Styles
 -----------------------------------------------*/
-
-/*# sourceMappingURL=theme.css.map */

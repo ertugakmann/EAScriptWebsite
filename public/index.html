@@ -37,6 +37,15 @@
   <!-- ===============================================-->
   <!--    Main Content-->
   <!-- ===============================================-->
+
+  <svg class="scroll-icon" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 22 32" width="44" height="64">
+    <g fill="none" stroke-width="2" stroke="currentColor">
+      <!-- describe the offset through a custom property to animate the path to that value (its opposite since it's more entertaining) -->
+      <path style="--offset: -5;" id="offset" d="M 10 8 v 5" stroke-linecap="round" stroke-dasharray="5"
+        stroke-dashoffset="5" />
+      <rect width="20" height="30" rx="10" />
+    </g>
+  </svg>
   <main class="main" id="top">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
       <div class="container"><a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="" width="30" /><span
@@ -61,7 +70,7 @@
     <!-- <section> begin ============================-->
     <section id="homepage" class="pb-6">
 
-      <div class="container">
+      <div class="container main-container">
         <div class="row flex-center">
           <div class="col-lg-6 col-md-5 order-md-1"><img class="img-fluid"
               src="assets/img/illustrations/undraw_Programming_re_kg9v.png" alt="" /></div>
@@ -69,7 +78,7 @@
             <h1 class="fw-medium">EAScript ile kolay bir şekilde<br />kod yazmaya <span class="fw-bold">hazır mısın
               </span>?</h1>
             <p class="mt-3 mb-4">EAScript, Türk yazılım geliştiricilerinin ihtiyaçlarına yönelik olarak oluşturulmuş bir
-              programlama dilidir.<span class="fw-medium">EAScript</span> hem yeni başlayanlar hem de deneyimli
+              programlama dilidir.<span class="fw-medium"> EAScript</span> hem yeni başlayanlar hem de deneyimli
               geliştiriciler için idealdir. EAScript ile kod yazmak, karmaşık yapıları basit ve
               anlaşılır bir şekilde ifade etmenizi sağlar. Aynı zamanda yerli ve milli bir dil olması, gurur verici bir
               özelliktir.
@@ -89,7 +98,6 @@
     <!-- ============================================-->
     <!-- <section> begin ============================-->
     <section id="provides" class="pt-4 pt-md-6">
-
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-5 col-lg-7 text-lg-center"><img class="img-fluid mb-5 mb-md-0"
@@ -148,42 +156,50 @@
     <!-- ============================================-->
     <!-- <section> begin ============================-->
     <section id="contact-form" class="py-7">
-
-      <div class="contact-form">
-        <h1 class="contact-title">İletişime Geç</h1>
-        <div class="form-div">
-          <form class="form">
-            <input class="input" placeholder="İsim" required="" type="text">
-            <button class="reset" type="reset">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </form>
+      <div class="container py-5">
+        <div class="section-title position-relative text-center title" style="visibility: visible;">
+          <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px">
+            İletişim
+          </h6>
+          <h1 class="font-secondary display-4">İletişime Geç</h1>
         </div>
-        <div class="form-div">
-          <form class="form">
-            <input class="input" placeholder="E-Posta" required="" type="text">
-            <button class="reset" type="reset">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </form>
-        </div>
-        <div class="form-div">
-          <form class="form-message">
-
-            <input class="input" placeholder="Mesaj" required="" type="text">
-            <button class="reset" type="reset">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </form>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="contact-form">
+              <div id="success"></div>
+              <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                <div class="form-row">
+                  <div class="col-sm-6 control-group">
+                    <input type="text" class="form-control mb-4 border-1 py-4 px-3" id="name" placeholder="İsim"
+                      required="required" data-validation-required-message="Lütfen İsminizi Giriniz"
+                      aria-invalid="false">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="col-sm-6 control-group">
+                    <input type="email" class="form-control mb-4 border-1 py-4 px-3" id="email" placeholder="E-Posta"
+                      required="required" data-validation-required-message="Lütfen E-Posta Adresinizi Giriniz"
+                      aria-invalid="false">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <input type="text" class="form-control mb-4  border-1 py-4 px-3" id="subject" placeholder="Başlık"
+                    required="required" data-validation-required-message="Lütfen Bir Başlık Giriniz">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                  <textarea class="form-control mb-4  border-1 py-2 px-3" rows="6" id="message" placeholder="Mesaj"
+                    required="required" data-validation-required-message="Lütfen Bir Mesaj Giriniz"></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit" id="sendMessageButton">
+                    Mesajı Gonder
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
       <img class="contact-img" src="./assets/img/illustrations/undraw_Pair_programming_re_or4x.png">
@@ -192,47 +208,17 @@
     <!-- ============================================-->
 
 
-
-
-    <!-- ============================================-->
-    <!-- <section> begin ============================-->
-    <section class="py-5 z-index-1" style="margin-bottom: -10rem">
-
-      <div class="container">
-        <div class="card py-5 px-5 border-0 shadow-sm">
-          <div class="card-body">
-            <div class="row flex-center">
-              <div class="col-12 col-lg-6 text-lg-start">
-                <h2>Subscribe Now for <br />Get Special Features!</h2>
-                <p class="mb-lg-0">Let's subscribe with us and find the fun.</p>
-              </div>
-              <div class="col-12 col-lg-6 text-lg-end"><a class="btn btn-lg btn-danger hover-top btn-glow text-end"
-                  href="#">Subscribe Now</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end of .container-->
-
-    </section>
-    <!-- <section> close ============================-->
-    <!-- ============================================-->
-
-
-
-
     <!-- ============================================-->
     <!-- <section> begin ============================-->
     <section id="footer" class="bg-200 pt-9 pb-0">
-
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-4 mb-3"><a href="#"><img class="d-inline-block align-middle"
                 src="assets/img/logo.png" alt="" width="30" /><span
                 class="d-inline-block text-1000 fs-1 ms-2 fw-medium lh-base">EA<span class="fw-bold">Script
                 </span></span></a>
-            <p class="my-3"> <span class="fw-medium">LaslesVPN </span>is a private virtual network that<br />has unique
-              features and has high security. </p>
+            <p class="my-3"> <span class="fw-medium">EAScript </span>kolayca kod yazmak için tasarlanmış<br />bir
+              programlama dilidir. </p>
             <ul class="list-unstyled list-inline">
               <li class="list-inline-item"><a class="text-decoration-none" href="#!">
                   <svg class="bi bi-facebook" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#F53838"
@@ -280,13 +266,7 @@
               <li class="lh-lg"><a class="text-900 text-decoration-none" href="#!">Terms of Service</a></li>
             </ul>
           </div>
-          <div class="col-12 col-sm-4 col-lg-2 mb-3 ps-xxl-7 ps-xl-5">
-            <h5 class="lh-lg">Earn Money </h5>
-            <ul class="list-unstyled mb-md-4 mb-lg-0">
-              <li class="lh-lg"><a class="text-900 text-decoration-none" href="#!">Affiliate</a></li>
-              <li class="lh-lg"><a class="text-900 text-decoration-none" href="#!">Become Partner</a></li>
-            </ul>
-          </div>
+
           <hr class="opacity-25" />
           <div class="text-400 text-center">
             <p>This website designed
